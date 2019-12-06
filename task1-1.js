@@ -7,11 +7,7 @@ const rl = readline.createInterface({
 askQuestion();
 
 function reverse(str) {
-  let returnStr = "";
-  for (let i = str.length - 1; i >= 0; i--) {
-    returnStr += str[i];
-  }
-  return returnStr;
+  return str.split("").reverse().join("")
 }
 
 function askQuestion() {
