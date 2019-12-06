@@ -1,6 +1,10 @@
-// const x = process.argv.slice(2).join(" ");
-// console.log("v1: ");
-// console.log(x);
+const readline = require("readline");
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+
+askQuestion();
 
 function reverse(str) {
   let returnStr = "";
@@ -9,17 +13,10 @@ function reverse(str) {
   }
   return returnStr;
 }
-// console.log(reverse(x))
-// return reverse(x);
 
-/* -------------------- */
-
-const readline = require('readline');
-const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
-})
-
-rl.question('Type input: ', input => {
-    console.log(reverse(input))
-})
+function askQuestion() {
+  rl.question("Type input: \n", input => {
+    console.log(reverse(input));
+    askQuestion();
+  });
+}
