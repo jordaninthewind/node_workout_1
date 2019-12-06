@@ -9,8 +9,7 @@ function readWriteFile(file, writeFile) {
   const writeStream = fs.createWriteStream(writeFile)
   fs.createReadStream(file)
     .pipe(csv())
-    .on('data', row => {
-      writeStream.write(row)
-    })
+    .on('data', row => writeStream.write(row))
+    .on('error', error => console.log(error))
     .on('end', () => console.log('File updated!'))
 }
