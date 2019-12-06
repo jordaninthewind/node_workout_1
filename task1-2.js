@@ -1,14 +1,16 @@
 const csv = require("csvtojson");
 const fs = require("fs");
-const filePath = "./csv/node_mentoring_t1_2_input_example.csv";
-const file = csv()
-  .fromFile(filePath)
-  .then(json => writeFile(json));
+const readFilePath = "./csv/node_mentoring_t1_2_input_example.csv";
+const writeFilePath = "./formattedCsv.txt";
 
-function writeFile(file) {
-  const formattedFile = file.map(obj => JSON.stringify(obj));
-  fs.writeFile("formattedCsv.txt", formattedFile, err => {
-    if (err) throw err;
-    console.log("The file has been saved.");
-  });
+readWriteFile(readFilePath, writeFilePath);
+
+function readWriteFile(file, writeFile) {
+  const writeStream = fs.createWriteStream(writeFile)
+  fs.createReadStream(file)
+    .pipe(csv())
+    .on('data', row => {
+      writeStream.write(row)
+    })
+    .on('end', () => console.log('File updated!'))
 }
