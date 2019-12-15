@@ -1,6 +1,3 @@
-// babel compiles with following command
-// ./node_modules/.bin/babel ./src/index.js ./src/task1-3.js --out-dir lib
-
 import csvtojson from 'csvtojson';
 import fs from 'fs';
 
