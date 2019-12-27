@@ -20,4 +20,4 @@ Enter 'npm run task:1.2' in the console will read the CSV file and output the va
 
 ### - Task 3
 
-Run './node_modules/.bin/babel ./src/index.js ./src/task1-3.js --out-dir lib' to run babel, which outputs the files to '/lib'. After this is completed, run 'npm run task:1.3' to have the file output data to '/output/formattedCsv.txt'.
+Run 'npm run task:1.3' to have the file output data to '/output/formattedCsv.txt'. This runs a babel command that transpiles the syntax and runs it from the output folder.
